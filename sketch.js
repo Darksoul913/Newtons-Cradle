@@ -10,25 +10,25 @@ var world;
 
 
 function setup() {
-	createCanvas(1600, 700);
+	createCanvas(1200, 0);
 	rectMode(CENTER);
 
 
 	engine = Engine.create();
 	world = engine.world;
 
-	roofObject=new roof(width/2,height/4,width/7,20);
+	
 
 	bobDiameter=40;
 
 	startBobPositionX=width/2;
 	startBobPositionY=height/4+500;
-	bobObject1=new bob(startBobPositionX-bobDiameter*2,startBobPositionY,bobDiameter);
-	bobObject2=new bob(startBobPositionX-bobDiameter,startBobPositionY,bobDiameter);
-	bobObject3=new bob(startBobPositionX,startBobPositionY,bobDiameter);
-	bobObject4=new bob(startBobPositionX+bobDiameter,startBobPositionY,bobDiameter);
-	bobObject5=new bob(startBobPositionX+bobDiameter*2,startBobPositionY,bobDiameter);
-	
+	bobObject1=new paper(startBobPositionX-bobDiameter*2,startBobPositionY,bobDiameter);
+	bobObject2=new paper(startBobPositionX-bobDiameter,startBobPositionY,bobDiameter);
+	bobObject3=new paper(startBobPositionX,startBobPositionY,bobDiameter);
+	bobObject4=new paper(startBobPositionX+bobDiameter,startBobPositionY,bobDiameter);
+	bobObject5=new paper(startBobPositionX+bobDiameter*2,startBobPositionY,bobDiameter);
+	roofObject = new Roof(600,175,228,20);
 	
 	//Create a Ground
 	
@@ -51,7 +51,7 @@ function setup() {
 	rope4=new rope(bobObject4.body,roofObject.body,bobDiameter*1, 0)
 	rope5=new rope(bobObject5.body,roofObject.body,bobDiameter*2, 0)
 
-	/*constraint1={
+	constraint1={
 		bodyA:bobObject1.body,
 		bodyB:roofObject.body,
 		pointB: {x:-bobDiameter*2, y:0}
@@ -77,18 +77,18 @@ function setup() {
 		pointB: {x:bobDiameter*2, y:0}
 	}
 	var pendulum1=Constraint.create(constraint1)
-	var pendulum2=Constraint.create(constraint2)
-	var pendulum3=Constraint.create(constraint3)
-	var pendulum4=Constraint.create(constraint4)
-	var pendulum5=Constraint.create(constraint5)
 	World.add(world, pendulum1);
+	var pendulum2=Constraint.create(constraint2)
 	World.add(world, pendulum2);
+	var pendulum3=Constraint.create(constraint3)
 	World.add(world, pendulum3);
+	var pendulum4=Constraint.create(constraint4)
 	World.add(world, pendulum4);
+	var pendulum5=Constraint.create(constraint5)
 	World.add(world, pendulum5);
-	*/
+	
 	Engine.run(engine);
-	//Render.run(render);
+	Render.run(render);
   
 }
 

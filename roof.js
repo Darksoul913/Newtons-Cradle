@@ -12,11 +12,11 @@ class Roof {
     }
     display(){
       var GroundPos =this.body.position;
-      Push();
+      push();
       translate(GroundPos.x,GroundPos.y);
       rectMode(CENTER);
       fill(128,128,128);
       rect(0, 0, this.width, this.height);
-      Pop();
+      pop();
     }
   };
